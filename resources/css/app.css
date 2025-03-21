@@ -7,6 +7,9 @@
 
 @config '../../tailwind.config.js';
 
+
+
+
 @layer base {
     :root {
       /* Name: custom color palette
@@ -16,7 +19,7 @@
       /* CSS: .bg-gradient { background: var(--gradient) } */
       --gradient: linear-gradient(to top left, #f80606, #ffa93a);
 
-      --background: 220 65% 3.52%;
+      --background: 200 100% 98.04%;
       --foreground: 220 10% 97.2%;
 
       --muted: 220 50% 13.2%;
