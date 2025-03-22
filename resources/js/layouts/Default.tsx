@@ -1,14 +1,12 @@
 import { Footer } from '@/components';
-import Navbar from '@/components/navigation/navbar';
-import React from 'react'
-interface Props {
-    children: React.ReactNode;
-}
+import { NavigationBar } from '@/components/NavigationBar';
+import { PropsWithChildren } from 'react';
 
-const Default = ({ children }: Props) => {
+
+const Default = ({ children }: PropsWithChildren) => {
     return (
-        <div className="flex bg-dark text-white flex-col items-center w-full">
-            <Navbar />
+        <div className="flex bg-foreground text-white flex-col items-center w-full">
+            <NavigationBar />
             {children}
             <Footer />
         </div>
