@@ -12,9 +12,15 @@ import { motion } from "framer-motion";
 import Default from '@/layouts/Default'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { InfiniteSlider } from '@/components/sponsors'
+
+interface ImageProps {
+    image: string,
+    name: string
+  }
 
 
-const Home = () => {
+const Home = ({sponsors}: {sponsors: ImageProps[]}) => {
   return (
     <Default>
 
@@ -91,12 +97,33 @@ const Home = () => {
         </Container>
       </Wrapper>
 
+<Wrapper>
+    <Container>
+
+    <div className=" max-w-md mx-auto text-start md:text-center">
+            <SectionBadge title="Sponsors" />
+            <h2 className=" text-3xl text-muted lg:text-4xl font-semibold mt-6">
+              Our sponsors
+            </h2>
+
+          </div>
+
+
+    <InfiniteSlider gap={24} reverse className="w-full h-full ">
+    {sponsors.map((logo) => (
+  <img src={'storage/'+logo.image} key={logo.name} alt={logo.name} />
+))}
+    </InfiniteSlider>
+
+
+    </Container>
+</Wrapper>
 
 
 
       {/* Features */}
 
-      <Wrapper className=" felx flex-col items-center justify-center py-12 relative">
+      <Wrapper className=" felx flex-col mt-[120px] items-center justify-center py-12 relative">
         <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-green-500 rounded-full blur-[10rem] -z-10"></div>
         <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-red-600 rounded-full blur-[10rem] -z-10"></div>
         <Container>

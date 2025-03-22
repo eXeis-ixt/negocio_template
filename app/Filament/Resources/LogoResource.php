@@ -12,7 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Facades\Storage;
 class LogoResource extends Resource
 {
     protected static ?string $model = Logo::class;
@@ -52,6 +52,13 @@ class LogoResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()->after(function (Logo $record) {
+                    // delete single
+                    if ($record->image) {
+                       Storage::disk('public')->delete($record->image);
+                    }
+
+                 }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

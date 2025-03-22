@@ -14,11 +14,9 @@ const Footer = () => {
                 <div className="flex flex-col items-start justify-start md:max-w-[200px]">
                     <div className="flex items-start">
                         {/* <Icons.logo className="w-7 h-7" /> */}
-                        <AppLogoIcon />
+                        <img src="/communic.png" alt="Communic" />
                     </div>
-                    <p className="text-muted mt-4 text-2xl text-start">
-                        Negocio 2.0
-                    </p>
+
                     <span className="mt-4 text-neutral-200 text-sm flex items-center">
                         <span>Made in <a href="https://facebook.com/adons.org" target="_blank"> Adons</a> with</span>
                         <Heart className="w-3.5 h-3.5 ml-1 fill-primary text-primary" />
@@ -26,13 +24,27 @@ const Footer = () => {
                 </div>
 
                 <div className="grid-cols-2 gap-8 grid mt-16 xl:col-span-2 xl:mt-0">
+                <div className="md:grid md:grid-cols-2 md:gap-8">
+                        <div className="">
+                            <h3 className="text-base font-medium text-primary">
+                                Info
+                            </h3>
+                            <ul className="mt-4 text-sm text-muted">
+                            <li className="mt-2">
+                                    Adresss: Institute of Business Administration, Jahangirnagar, University, Savar, Dhaka.
+                                </li>
 
+
+                            </ul>
+                        </div>
+
+                    </div>
                     <div className="md:grid md:grid-cols-2 md:gap-8">
                         <div className="">
-                            <h3 className="text-base font-medium text-white">
+                            <h3 className="text-base font-medium text-primary">
                                 Resources
                             </h3>
-                            <ul className="mt-4 text-sm text-muted-foreground">
+                            <ul className="mt-4 text-sm text-muted">
                             <li className="mt-2">
                                     <a href="https://facebook.com/communic.ibaju/" target="_blank" className="hover:text-foreground transition-all duration-300">
                                         Facebook
@@ -40,9 +52,14 @@ const Footer = () => {
                                 </li>
 
                                 <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
-                                        Support
-                                    </Link>
+                                    <a href="https://linkedin.com/company/communic/" target="_blnak" className="hover:text-foreground transition-all duration-300">
+                                        Linkedin
+                                    </a>
+                                </li>
+                                <li className="mt-2">
+                                    <a href="mailto:primary.communic@gmail.com" className="hover:text-foreground transition-all duration-300">
+                                        Contact us
+                                    </a>
                                 </li>
                             </ul>
                         </div>

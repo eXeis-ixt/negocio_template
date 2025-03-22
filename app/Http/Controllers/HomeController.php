@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\TeamNotification;
 use App\Models\Team;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
@@ -11,7 +12,10 @@ use Inertia\Inertia;
 class HomeController extends Controller
 {
     public function index(){
-        return Inertia::render("Home");
+        $sponsors = Logo::latest()->get();
+        return Inertia::render("Home",[
+            'sponsors' => $sponsors
+        ]);
     }
 
     public function team(){
