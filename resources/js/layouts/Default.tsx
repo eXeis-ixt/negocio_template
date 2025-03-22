@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react';
 
 const Default = ({ children }: PropsWithChildren) => {
     return (
-        <div className="flex bg-foreground text-white flex-col items-center w-full">
+        <div className="flex  text-white flex-col items-center w-full">
             <NavigationBar />
             {children}
             <Footer />

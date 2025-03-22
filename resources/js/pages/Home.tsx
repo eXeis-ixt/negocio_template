@@ -1,15 +1,17 @@
 import { Container, Icons, Wrapper } from '@/components'
-import { features, perks } from '@/components/constants'
+import { features, perks, pricingCards } from '@/components/constants'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { LampContainer } from '@/components/ui/lamp'
 import SectionBadge from '@/components/ui/section-badge'
 import { Link } from '@inertiajs/react'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronRight, Zap } from 'lucide-react'
 import React from 'react'
 import { motion } from "framer-motion";
 import Default from '@/layouts/Default'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 
 
 const Home = () => {
@@ -44,12 +46,11 @@ const Home = () => {
             </button>
 
             <div className="flex flex-col items-center mt-8 max-w-3xl w-11/12 md:w-full">
-              <h1 className="text-4xl md:text-6xl lg:textxl md:!leading-snug font-semibold text-center bg-clip-text bg-gradient-to-b from-gray-50 to-red-500 text-transparent">
+              <h1 className="text-4xl md:text-6xl lg:textxl md:!leading-snug font-semibold text-center bg-clip-text bg-gradient-to-b from-gray-50 to-gray-100 text-transparent">
                Welcome to Negocio 2.0
               </h1>
               <p className="text-base md:text-lg text-muted/80 mt-6 text-center">
-                Zero code, maximum speed. Make professional sites easy, fast and
-                fun while delivering best-in-class SEO, performance.
+            The country’s first and biggest Inter-University Sales Strategy Competition! Hosted by Communic, IBA-Jahangirnagar University, this flagship event is designed to push the boundaries of strategic sales thinking.
               </p>
               <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                 <Link
@@ -57,15 +58,17 @@ const Home = () => {
                   className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none"
                 >
                   <p className="text-muted text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0">
-                    ✨ {"  "} Reserve your spot right now!
+                    ✨ {"  "} Register to perticipate!
                   </p>
+                  <Link href={route('team.register')} prefetch>
                   <Button
                     size="sm"
                     className="rounded-full hidden lg:flex border border-foreground/20"
-                  >
+                    >
                     Get Started
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
+                      </Link>
                 </Link>
               </div>
             </div>
@@ -89,40 +92,7 @@ const Home = () => {
       </Wrapper>
 
 
-      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
-        <Container>
-          <div className="max-w-md mx-auto text-start md:text-center">
-            <SectionBadge title="The process" />
-            <h2 className=" text-3xl lg:text-4xl text-muted font-semibold mt-6">
-              Three steps to register
-            </h2>
-            <p className=" text-muted-foreground mt-6">
-              Register your Team seamlessly
-            </p>
-          </div>
-        </Container>
 
-        <Container>
-          <div className="flex flex-col items-center justify-center py-10 md:py-20 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full divide-x-0 md:divide-x divide-y md:divide-y-0 divide-gray-900 first:border-l-2 lg:first:border-none first:border-gray-900">
-              {perks.map((perk) => (
-                <div
-                  key={perk.title}
-                  className="flex flex-col items-start px-4 md:px-6 lg:px-8 lg:py-6 py-4"
-                >
-                  <div className="flex items-center justify-center">
-                    <perk.icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg text-muted font-medium mt-4">{perk.title}</h3>
-                  <p className="text-muted-foreground mt-2 text-start lg:text-start">
-                    {perk.info}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Wrapper>
 
       {/* Features */}
 
@@ -131,14 +101,11 @@ const Home = () => {
         <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-red-600 rounded-full blur-[10rem] -z-10"></div>
         <Container>
           <div className=" max-w-md mx-auto text-start md:text-center">
-            <SectionBadge title="Features" />
+            <SectionBadge title="Roadmap" />
             <h2 className=" text-3xl text-muted lg:text-4xl font-semibold mt-6">
-              Discover all powerfull features
+              Discover all the Roadmaps
             </h2>
-            <p className=" text-muted-foreground mt-6">
-              TheStartup offers a range of features to help you build your own
-              app
-            </p>
+
           </div>
         </Container>
         <Container>
@@ -148,22 +115,46 @@ const Home = () => {
         </Container>
         <Container>
           <div className="flex flex-col items-center justify-center py-10 md:py-20 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-8">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="flex flex-col items-start lg:items-start px-0 md:px-0"
-                >
-                  <div className="flex items-center justify-center">
-                    <feature.icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg text-muted/80 font-medium mt-4">{feature.title}</h3>
-                  <p className="text-muted-foreground mt-2 text-start lg:text-start">
-                    {feature.info}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full md:gap-8 py-10 md:py-20 flex-wrap max-w-4xl">
+            {pricingCards.map((card) => (
+              <Card
+                key={card.title}
+                className={cn(
+                  "flex flex-col w-full border-neutral-700 dark:bg-background text-muted",
+                  card.title === "Finale" && "border-2 border-primary"
+                )}
+              >
+                <CardHeader className="border-b border-border">
+                  <span className='text-2xl font-bold'>{card.title}</span>
+
+                  <CardDescription className=' text-gray-400'>{card.description}</CardDescription>
+                  <CardDescription className=' text-gray-400'>{card.smalldesc}</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6 space-y-3">
+                  {card.features.map((feature) => (
+                    <div key={feature} className="flex justify-start gap-2">
+                        <li className=' marker:text-primary'>
+
+                      <p>{feature}</p>
+                        </li>
+                    </div>
+                  ))}
+                </CardContent>
+                <CardFooter className="mt-auto">
+                  <Link
+                    href="#"
+                    className={cn(
+                      "w-full text-center text-primary-foreground bg-primary p-2 rounded-md text-sm font-medium",
+                      card.title !== "Finale" &&
+                        "!bg-foreground !text-white"
+                    )}
+                  >
+                    {card.buttonText}
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
           </div>
         </Container>
       </Wrapper>

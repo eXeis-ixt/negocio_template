@@ -14,22 +14,28 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('team_name');
-            $table->string('manager_email');
-            $table->string('memberone_name');
-            $table->string('memberone_email');
-            $table->string('memberone_phone')->nullable();
+
+            $table->string('leader_name');
+            $table->string('leader_email');
+            $table->string('leader_phone')->nullable();
+            $table->string('leader_uni')->nullable();
+            $table->string('leader_dept')->nullable();
             $table->string('membertwo_name');
             $table->string('membertwo_email');
             $table->string('membertwo_phone')->nullable();
+            $table->string('membertwo_uni')->nullable();
+            $table->string('membertwo_dept')->nullable();
             $table->string('memberthree_name')->nullable();
             $table->string('memberthree_email')->nullable();
             $table->string('memberthree_phone')->nullable();
+            $table->string('memberthree_uni')->nullable();
+            $table->string('memberthree_dept')->nullable();
             $table->string('memberfour_name')->nullable();
             $table->string('memberfour_email')->nullable();
             $table->string('memberfour_phone')->nullable();
-            $table->string('memberfive_name')->nullable();
-            $table->string('memberfive_email')->nullable();
-            $table->string('memberfive_phone')->nullable();
+            $table->string('memberfour_uni')->nullable();
+            $table->string('memberfour_dept')->nullable();
+
             $table->timestamps();
         });
     }

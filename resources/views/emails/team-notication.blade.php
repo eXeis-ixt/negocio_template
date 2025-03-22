@@ -1,8 +1,8 @@
-<!-- resources/views/emails/team-registration.blade.php -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Team Registration Confirmation</title>
     <style>
         body {
@@ -14,9 +14,9 @@
             padding: 20px;
         }
         .header {
-            background-color: #5468fb;
+            background-color: #224169;
             color: white;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             border-radius: 5px 5px 0 0;
         }
@@ -26,11 +26,16 @@
             border-top: none;
             border-radius: 0 0 5px 5px;
         }
+        .team-info {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
         .footer {
             margin-top: 20px;
             text-align: center;
-            font-size: 12px;
-            color: #777;
+            font-size: 0.8em;
+            color: #666;
         }
     </style>
 </head>
@@ -40,33 +45,94 @@
     </div>
 
     <div class="content">
-        <p>Dear Team Manager,</p>
+        <p>Dear {{ $team->leader_name }},</p>
 
-        <p>We're excited to confirm that your team <strong>{{ $team->team_name }}</strong> has been successfully registered for the upcoming event!</p>
+        <p>Thank you for registering your team <strong>{{ $team->team_name }}</strong> for the upcoming event. Your registration has been successfully received and processed.</p>
 
-        <p>Here's a summary of your registration:</p>
-        <ul>
-            <li><strong>Team Name:</strong> {{ $team->team_name }}</li>
-            <li><strong>Manager Email:</strong> {{ $team->manager_email }}</li>
-            <li><strong>Registration Date:</strong> {{ $team->created_at->format('F j, Y') }}</li>
-        </ul>
+        <div class="team-info">
+            <h2>Team Information</h2>
 
-        <p>What's next?</p>
-        <ol>
-            <li>Check your email regularly for updates about the event</li>
-            <li>Make sure all team members are prepared and know the event details</li>
-            <li>Contact us if you need to make any changes to your team information</li>
-        </ol>
+            <h3>Team Leader</h3>
+            <p>
+                <strong>Name:</strong> {{ $team->leader_name }}<br>
+                <strong>Email:</strong> {{ $team->leader_email }}<br>
+                @if($team->leader_phone)
+                <strong>Phone:</strong> {{ $team->leader_phone }}<br>
+                @endif
+                @if($team->leader_uni)
+                <strong>University/Institution:</strong> {{ $team->leader_uni }}<br>
+                @endif
+                @if($team->leader_dept)
+                <strong>Department:</strong> {{ $team->leader_dept }}
+                @endif
+            </p>
 
-        <p>If you have any questions or need assistance, please don't hesitate to reach out to our support team.</p>
+            <h3>Team Members</h3>
 
-        <p>Best regards,<br>
-        The Event Organizing Team</p>
+            <h4>Member 2</h4>
+            <p>
+                <strong>Name:</strong> {{ $team->membertwo_name }}<br>
+                <strong>Email:</strong> {{ $team->membertwo_email }}<br>
+                @if($team->membertwo_phone)
+                <strong>Phone:</strong> {{ $team->membertwo_phone }}<br>
+                @endif
+                @if($team->membertwo_uni)
+                <strong>University/Institution:</strong> {{ $team->membertwo_uni }}<br>
+                @endif
+                @if($team->membertwo_dept)
+                <strong>Department:</strong> {{ $team->membertwo_dept }}
+                @endif
+            </p>
+
+            @if($team->memberthree_name)
+            <h4>Member 3</h4>
+            <p>
+                <strong>Name:</strong> {{ $team->memberthree_name }}<br>
+                @if($team->memberthree_email)
+                <strong>Email:</strong> {{ $team->memberthree_email }}<br>
+                @endif
+                @if($team->memberthree_phone)
+                <strong>Phone:</strong> {{ $team->memberthree_phone }}<br>
+                @endif
+                @if($team->memberthree_uni)
+                <strong>University/Institution:</strong> {{ $team->memberthree_uni }}<br>
+                @endif
+                @if($team->memberthree_dept)
+                <strong>Department:</strong> {{ $team->memberthree_dept }}
+                @endif
+            </p>
+            @endif
+
+            @if($team->memberfour_name)
+            <h4>Member 4</h4>
+            <p>
+                <strong>Name:</strong> {{ $team->memberfour_name }}<br>
+                @if($team->memberfour_email)
+                <strong>Email:</strong> {{ $team->memberfour_email }}<br>
+                @endif
+                @if($team->memberfour_phone)
+                <strong>Phone:</strong> {{ $team->memberfour_phone }}<br>
+                @endif
+                @if($team->memberfour_uni)
+                <strong>University/Institution:</strong> {{ $team->memberfour_uni }}<br>
+                @endif
+                @if($team->memberfour_dept)
+                <strong>Department:</strong> {{ $team->memberfour_dept }}
+                @endif
+            </p>
+            @endif
+        </div>
+
+        <p>We'll be sending more information about the event schedule, venue details, and further instructions to this email address in the coming days.</p>
+
+        <p>If you have any questions or need to update your team information, please contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+
+        <p>Best regards,<br>The Event Team</p>
     </div>
 
     <div class="footer">
-        <p>This is an automated message. Please do not reply to this email.</p>
-        <p>&copy; {{ date('Y') }} Communic. All rights reserved. | Powered By Adons Tech</p>
+        <p>This email was sent by Antlers Labs</p>
+        <p>&copy; {{ date('Y') }} Your Organization. All rights reserved.</p>
     </div>
 </body>
 </html>

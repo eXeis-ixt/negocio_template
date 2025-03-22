@@ -52,10 +52,10 @@
     }
 
     .dark {
-      --background: 200 100% 98.04%;
+      --background: 0, 0%, 11%;
       --foreground: 213.6 100% 4.9%;
 
-      --primary: 214.12 100% 50%;
+      --primary: 357, 96%, 58%;
       --primary-foreground: 0 0% 100%;
 
       --card: 216 100% 98.04%;
