@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Mail\TeamNotification;
 use App\Models\Team;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\TeamNotification;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
